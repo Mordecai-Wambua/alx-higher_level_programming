@@ -1,0 +1,51 @@
+============================
+How to Use 2-matrix_divided.py
+============================
+
+defines usage of the function ``matrix_divided(matrix, div)``
+
+
+Test cases:
+===========
+``matrix_divided(matrix, div)`` returns a new matrix after division
+
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+#test for actual output and rounding off to 2 dp
+>>> print(matrix_divided([[1, 2, 3],[4, 5, 6]],3))
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+#test for matrix with floats
+>>> m = [[34.5,22.3,53.7],[25.5,45.76,76.8]]
+>>> print(matrix_divided(m,3))
+[[11.5, 7.43, 17.9], [8.5, 15.25, 25.6]]
+
+#test for empty matrix
+>>> matrix_divided(None,None)
+TypeError("missing the required positional arguments: 'matrix' and 'div'")
+
+::
+#test for division by zero
+>>> matrix_divided([[3,5,6],[2,54,65]],0)
+ZeroDivisionError('division by zero')
+
+::
+#test for matrix with invalid element datatypes(not int or float)
+>>> matrix_divided([[1,2,3],[4,"fr",6]],2)
+TypeError('matrix must be a matrix (list of lists) of integers/floats')
+
+::
+#test for empty list(matrix)
+>>> matrix_divided([None],2)
+TypeError('matrix must be a matrix (list of lists) of integers/floats')
+
+::
+#test for a divisor of invalid datatype
+>>> matrix_divided([[3,5,6],[2,54,65]],"free")
+TypeError('div must be a number')
+
+::
+#test for different row lengths in matrix
+>>> matrix_divided([[3,5,6],[2,54,65,45]],3)
+TypeError('Each row of the matrix must have the same size')

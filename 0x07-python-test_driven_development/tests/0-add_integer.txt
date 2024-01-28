@@ -1,0 +1,52 @@
+============================
+How to Use 0-add_integer.py
+============================
+
+defines usage of the function ``add_integer(a, b=98)``
+
+
+Test cases:
+===========
+``add_integer(a, b=98)`` returns the sum of its 2 arguments
+
+::
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+test addition for integers
+    >>> add_integer(4, 9)
+    13
+
+::
+test addition for floats
+    >>> add_integer(2.4, 5.7)
+    7
+
+::
+test for invalid argument type
+    >>> add_integer("da", 12)
+    TypeError('a must be an integer')
+
+::
+test for invalid argument type
+    >>> add_integer(6, "swe")
+    TypeError('b must be an integer')
+
+::
+test for no second argument
+    >>> add_integer(5)
+    103
+
+::
+test for lack of argument
+    >>> add_integer(None)
+    TypeError('a must be an integer')
+
+::
+test for infinity
+    >>> add_integer(3, float('inf'))
+    OverflowError('cannot convert float infinity to integer')
+
+::
+test for negative numbers
+    >>> add_integer(-4, -7)
+    -11

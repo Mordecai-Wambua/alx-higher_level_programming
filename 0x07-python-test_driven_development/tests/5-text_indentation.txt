@@ -1,0 +1,66 @@
+================================
+How to Use 5-text_indentation.py
+================================
+
+defines usage of the function ``text_indentation(text``
+
+
+Test cases:
+===========
+``text_indentation(text`` prints the full name
+
+::
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+::
+#test for normal functioning
+>>> text_indentation("Good Morning.")
+Good Morning.
+<BLANKLINE>
+
+>>> text_indentation("Today, will be a long day, don't you think so?")
+Today, will be a long day, don't you think so?
+<BLANKLINE>
+
+>>> text_indentation("Wow!!")
+Wow!!
+
+::
+#test for incorrect datatype entries
+>>> text_indentation(23)
+TypeError('text must be a string')
+
+>>> text_indentation(True)
+TypeError('text must be a string')
+
+::
+#test for no arguments
+>>> text_indentation()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+>>> text_indentation(None)
+TypeError('text must be a string')
+
+::
+#test for multiple arguments
+>>> text_indentation("Today.","Monday")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+::
+#test for text with no recognized symbol
+text_indentation(",,,!!")
+,,,!!
+
+::
+#test for text with only recognized symbols
+>>> text_indentation(".?:")
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>

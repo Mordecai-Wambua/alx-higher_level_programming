@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" Function that adds 2 numbers and returns the sum"""
+
+
 def add_integer(a, b=98):
     """Function that adds two integers
         Args:
@@ -15,7 +18,7 @@ def add_integer(a, b=98):
             raise TypeError("b must be an integer")
 
         if type(a) or type(b) is float:
-            return(int(a) + int(b))
+            return (int(a) + int(b))
 
         return (a + b)
     except Exception as i:

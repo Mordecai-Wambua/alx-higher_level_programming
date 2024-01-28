@@ -1,0 +1,39 @@
+=============================
+How to Use 3-say_my_name.py
+=============================
+
+defines usage of the function ``say_my_name(first_name, last_name="")``
+
+
+Test cases:
+===========
+``say_my_name(first_name, last_name="")`` prints the full name
+
+::
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+::
+#test for actual output
+>>> say_my_name("John", "Wick") 
+My name is John Wick
+
+::
+#test for entry of invalid datatypes
+#first argument
+>>> say_my_name(32, "Wick")
+first_name must be a string
+
+#second argument
+>>> say_my_name("Faith", [])
+last_name must be a string
+
+::
+#passing only oe argument
+>>> say_my_name("Mark")
+My name is Mark 
+
+#passing more than one argument
+>>> say_my_name("John", "N", "Junior")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
