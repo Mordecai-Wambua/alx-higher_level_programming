@@ -1,20 +1,23 @@
 #!/usr/bin/python3
-""" Function that divides matrix elements by the argument div"""
+"""Function that divides matrix elements by the argument div."""
 
 
 def matrix_divided(matrix, div):
-    """Function that divides all matrix elements by div
-        Args:
-            matrix (list): The actual matrix
-            div (int/float): divisor
+    """Divides all matrix elements by div.
 
-        Returns:
-            the new matrix after division
+    Args:
+        matrix (list): The actual matrix
+        div (int/float): divisor
+
+    Returns:
+        the new matrix after division
+
     """
     try:
+        msg = "missing the required positional arguments: 'matrix' and 'div'"
+        msg2 = "matrix must be a matrix (list of lists) of integers/floats"
         if (matrix is None or div is None):
-            raise TypeError("missing the required positional
-                            arguments: 'matrix' and 'div'")
+            raise TypeError(msg)
 
         if type(div) not in [int, float]:
             raise TypeError("div must be a number")
@@ -27,8 +30,7 @@ def matrix_divided(matrix, div):
                 not all(isinstance(row, list) for row in matrix) or
                 not all((isinstance(i, (int, float))
                         for row in matrix for i in row))):
-            raise TypeError("matrix must be a matrix
-                            (list of lists) of integers/floats")
+            raise TypeError(msg2)
 
         if not all(len(row) == len(matrix[0]) for row in matrix):
             raise TypeError("Each row of the matrix must have the same size")
