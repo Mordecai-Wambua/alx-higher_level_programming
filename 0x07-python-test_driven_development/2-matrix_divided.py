@@ -38,4 +38,4 @@ def matrix_divided(matrix, div):
         return [list(map(lambda x: round(x / div, 2), row)) for row in matrix]
 
     except (TypeError, ZeroDivisionError) as i:
-        raise(i)
+        raise (i)
