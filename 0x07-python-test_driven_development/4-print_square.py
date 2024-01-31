@@ -18,4 +18,4 @@ def print_square(size):
             for i in range(size):
                 print("#" * size)
     except Exception as i:
-        return i
+        raise i
