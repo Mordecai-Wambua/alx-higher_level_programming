@@ -26,4 +26,4 @@ def text_indentation(text):
         if output.strip():
             print(output.strip(), end='')
     except TypeError as ex:
-        return ex
+        raise ex

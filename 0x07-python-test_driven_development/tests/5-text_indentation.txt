@@ -28,26 +28,32 @@ Wow!!
 ::
 #test for incorrect datatype entries
 >>> text_indentation(23)
-TypeError('text must be a string')
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
 
 >>> text_indentation(True)
-TypeError('text must be a string')
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
 
 ::
 #test for no arguments
 >>> text_indentation()
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+    ...
 TypeError: text_indentation() missing 1 required positional argument: 'text'
 
 >>> text_indentation(None)
-TypeError('text must be a string')
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
 
 ::
 #test for multiple arguments
 >>> text_indentation("Today.","Monday")
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+  ...
 TypeError: text_indentation() takes 1 positional argument but 2 were given
 
 ::
