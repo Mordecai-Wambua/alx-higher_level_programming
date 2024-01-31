@@ -24,7 +24,9 @@ Test cases:
 ::
 #test for invalid entry datatype
 >>> print_square("four")
-TypeError('size must be an integer')
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
 
 ::
 #test for no arguments
@@ -36,17 +38,21 @@ TypeError: print_square() missing 1 required positional argument: 'size'
 ::
 #test for negative values
 >>> print_square(-6)
-ValueError('size must be >= 0')
+Traceback (most recent call last):
+    ...
+ValueError: size must be >= 0
 
 ::
 #test for mor than one argument
 >>> print_square(3,6,5)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+  ...
 TypeError: print_square() takes 1 positional argument but 3 were given
 
 ::
 #test for float arguments
 >>> print_square(3.4)
-TypeError('size must be an integer')
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
 
