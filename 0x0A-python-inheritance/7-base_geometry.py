@@ -7,7 +7,7 @@ class BaseGeometry:
 
     def area(self):
         """Unimplemented method."""
-        raise Exception('area() is not implemented')
+        raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
         """Validate user value.
@@ -17,6 +17,6 @@ class BaseGeometry:
             value (int): value to be validated
         """
         if not isinstance(value, int):
-            raise TypeError('{} must be an integer'.format(name))
-        elif value <= 0:
-            raise ValueError('{} must be greater than 0'.format(name))
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
