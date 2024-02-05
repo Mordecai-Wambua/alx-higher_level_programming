@@ -4,5 +4,4 @@
 
 def lookup(obj):
     """Return the attributes and methods of the object."""
-    if obj:
-        return list(dir(obj))
+    return dir(obj)
