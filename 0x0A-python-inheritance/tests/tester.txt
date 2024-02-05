@@ -1,6 +1,9 @@
+# tests/test_base_geometry.txt
+
 ===================================
 Test cases for class BaseGeometry:
 ===================================
+
 ``area(self)`` - raises an Exception with the message area() is not implemented
 ``integer_validator(self, name, value)`` - validates value
 
@@ -8,9 +11,8 @@ Test cases for class BaseGeometry:
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
 
-
-#test for area method
 ::
+# Test for area method
 >>> try:
 ...     print(bg.area())
 ... except Exception as e:
@@ -18,8 +20,13 @@ Test cases for class BaseGeometry:
 ...
 [Exception] area() is not implemented
 
+# Test for integer_validator method
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+  ...
+TypeError: name must be an integer
 
-#test for normal functionality
+# Test for normal functionality
 ::
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
@@ -30,37 +37,31 @@ Test cases for class BaseGeometry:
 ...
 [Exception] area() is not implemented
 
-#test for integer_validation method
->>> bg.integer_validator("name", "John")
-Traceback (most recent call last):
-  ...
-TypeError: name must be an integer
-
-
 ::
-#test for wrong argument type
+# Test for wrong argument type
 >>> bg.integer_validator("name", "John")
 Traceback (most recent call last):
   ...
 TypeError: name must be an integer
 
 ::
-#test for wrong value range
+# Test for wrong value range
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
   ...
 ValueError: age must be greater than 0
 
 ::
-#test for no arguments
+# Test for no arguments
 >>> bg.integer_validator()
 Traceback (most recent call last):
   ...
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 ::
-#test for single argument
+# Test for single argument
 >>> bg.integer_validator("Home")
 Traceback (most recent call last):
   ...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
+
