@@ -2,7 +2,7 @@
 """File append function."""
 
 
-def write_file(filename="", text=""):
+def append_write(filename="", text=""):
     """Write specified text to the end of the given file.
 
     Args:
