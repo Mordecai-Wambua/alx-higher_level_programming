@@ -42,6 +42,8 @@ TypeError: print_sorted() takes 1 positional argument but 2 were given
 >>> my_list = MyList()
 >>> print(my_list)
 []
+>>> my_list.print_sorted()
+[]
 
 ::
 #test for multiple datatypes in list
