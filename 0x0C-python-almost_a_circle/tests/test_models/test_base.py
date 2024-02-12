@@ -121,6 +121,12 @@ class Test_Rectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(-7, 7)
 
+        with self.assertRaises(TypeError):
+            Rectangle(3.4, 7)
+
+        with self.assertRaises(TypeError):
+            Rectangle({"a": 12, "b": 13}, 23)
+
     def test_height(self):
         with self.assertRaises(TypeError):
             Rectangle(12, "Yoh")
@@ -140,6 +146,12 @@ class Test_Rectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(5, -7)
 
+        with self.assertRaises(TypeError):
+            Rectangle(45, 9.8)
+
+        with self.assertRaises(TypeError):
+            Rectangle(23, {"a": 12, "b": 13})
+
     def test_x(self):
         with self.assertRaises(TypeError):
             Rectangle(6, 12, "Yoh")
@@ -156,6 +168,12 @@ class Test_Rectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(9, 5, -7)
 
+        with self.assertRaises(TypeError):
+            Rectangle(5, 9, 7.8)
+
+        with self.assertRaises(TypeError):
+            Rectangle(23, 6, {"a": 12, "b": 13})
+
     def test_y(self):
         with self.assertRaises(TypeError):
             Rectangle(23, 6, 12, "Yoh")
@@ -171,6 +189,17 @@ class Test_Rectangle(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             Rectangle(34, 90, 5, -7)
+
+        with self.assertRaises(TypeError):
+            Rectangle(23, 6, 12, 5.7)
+
+        with self.assertRaises(TypeError):
+            Rectangle(23, 6, 12, {"a": 12, "b": 13})
+
+    def test_area(self):
+        self.assertEqual(self.r1.area(), 20)
+        self.assertEqual(self.r2.area(), 20)
+        self.assertEqual(self.r3.area(), 20)
 
 
 if __name__ == "__main__":
