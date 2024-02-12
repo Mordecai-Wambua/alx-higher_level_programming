@@ -22,7 +22,9 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Return JSON representation to list_dictionaries."""
+        """Return JSON representation to list_dictionaries.
+        Args:
+            list_dictionaries (list): list of dictionaries"""
         if list_dictionaries is None or len(list_dictionaries) == []:
             return ("[]")
         else:
@@ -30,10 +32,21 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Write JSON representation of list_objs to a file."""
+        """Write JSON representation of list_objs to a file.
+        Args:
+            list_objs (list): list of instances inheriting from cls"""
         if list_objs is None:
             list_objs = []
         list_objs = [obj.to_dictionary() for obj in list_objs]
 
         with open("{}.json".format(cls.__name__), "w") as f:
             f.write(cls.to_json_string(list_objs))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Return list of JSON representation json_string.
+        Args:
+            json_string (str): string rep of a list of dictionaries"""
+        if (json_string is None or json_string == []):
+            return ([])
+        return (json.loads(json_string))
