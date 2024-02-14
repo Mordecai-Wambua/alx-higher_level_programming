@@ -105,7 +105,8 @@ class Base:
                 elif cls.__name__ == "Square":
                     fields = ["id", "size", "x", "y"]
                 output = csv.DictReader(f, fieldnames=fields)
-                output = [dict([k, int(v)] for k, v in i.items()) for i in output]
+                output = [dict([k, int(v)] for k, v in i.items())
+                          for i in output]
                 return [cls.create(**i) for i in output]
         except IOError:
             return []
