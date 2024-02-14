@@ -82,37 +82,33 @@ class Base:
         Args:
             list_objs (list):  list of instances who inherits of Base
         """
-        if list_objs is None:
-            list_objs = []
-
         with open("{}.csv".format(cls.__name__), "w", newline='') as f:
-            writer = csv.writer(f)
-            for obj in list_objs:
+            if list_objs is None:
+                f.write("[]")
+            else:
                 if cls.__name__ == "Rectangle":
-                    writer.writerow([obj.id, obj.width, obj.height, obj.x,
-                                    obj.y])
+                    fields = ["id", "width", "height", "x", "y"]
                 elif cls.__name__ == "Square":
-                    writer.writerow([obj.id, obj.size, obj.x, obj.y])
+                    fields = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(f, fieldnames=fields)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
         """Deserializes the csv."""
         csv_file = str(cls.__name__) + ".csv"
-        objs = []
         try:
-            with open(csv_file, "r") as f:
-                r = csv.reader(f)
-                for row in r:
-                    if cls.__name__ == "Rectangle":
-                        obj = cls(int(row[0]), int(row[1]), int(row[2]),
-                                  int(row[3]), int(row[4]))
-                    elif cls.__name__ == "Square":
-                        obj = cls(int(row[0]), int(row[1]), int(row[2]),
-                                  int(row[3]))
-                    objs.append(obj)
-                return objs
-        except FileNotFoundError:
-            return ([])
+            with open(csv_file, "r", newline="") as f:
+                if cls.__name__ == "Rectangle":
+                    fields = ["id", "width", "height", "x", "y"]
+                elif cls.__name__ == "Square":
+                    fields = ["id", "size", "x", "y"]
+                output = csv.DictReader(f, fieldnames=fields)
+                output = [dict([k, int(v)] for k, v in i.items()) for i in output]
+                return [cls.create(**i) for i in output]
+        except IOError:
+            return []
 
     @staticmethod
     def draw(list_rectangles, list_squares):
