@@ -1,22 +1,19 @@
 #!/usr/bin/python3
-
-"""
-Takes in an argument and displays all values in the states table
-of hbtn_0e_0_usa where name matches the argument.
-"""
+"""Displays all values in the states table where name matches the argument."""
 
 
 import MySQLdb
 from sys import argv
 if __name__ == '__main__':
     connection = MySQLdb.connect(
-            host = "localhost",
-            user = argv[1],
-            password = argv[2],
-            database = argv[3])
+            host="localhost",
+            user=argv[1],
+            password=argv[2],
+            database=argv[3])
 
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM states WHERE name='{}' ORDER BY id".format(argv[4]))
+    cursor.execute("SELECT * FROM states WHERE name='{}'\
+            ORDER BY id".format(argv[4]))
 
     output = cursor.fetchall()
 
