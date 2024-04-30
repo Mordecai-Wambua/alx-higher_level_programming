@@ -17,6 +17,9 @@ def find_peak(list_of_integers):
         return list_of_integers[0]
     elif len(list_of_integers) == 2:
         return max(list_of_integers)
-    
-    list_of_integers.sort(reverse=True)
-    return list_of_integers[0]
+
+    peak = 0
+    for i in list_of_integers:
+        if peak < i:
+            peak = i
+    return peak
