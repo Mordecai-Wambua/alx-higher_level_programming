@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""Send a POST request to the passed URL with the email as a parameter.
-Usage: ./2-post_email.py <url> <email>
-"""
+"""send an email to the input  url and print the response"""
 
 
 import sys
