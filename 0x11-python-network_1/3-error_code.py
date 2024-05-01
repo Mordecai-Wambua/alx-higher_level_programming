@@ -4,7 +4,7 @@
 
 from urllib.request import Request, urlopen
 from sys import argv
-from  urllib.error import HTTPError
+from urllib.error import HTTPError
 
 if __name__ == "__main__":
     url = argv[1]
@@ -15,4 +15,4 @@ if __name__ == "__main__":
             html = response.read().decode('utf-8')
             print(html)
     except HTTPError as e:
-        print('Error code: ',e.code)
+        print('Error code:', e.code)
